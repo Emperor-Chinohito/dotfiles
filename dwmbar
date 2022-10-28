@@ -1,0 +1,24 @@
+#! /bin/bash
+# This is my dwm statusbar script.
+# It gives the CPU Temperature, Battery Percentage, Date, and Time (in that order)
+# By default dwm doesn't give any information, it only shows the version number
+
+#The power() function determines the battery percentage
+power() 
+{
+	PWR=$(cat /sys/class/power_supply/BAT0/capacity)
+	echo -e "Battery: $PWR%"
+}
+
+#The thermal() function determines the CPU Temperature
+thermal()
+{
+	CPU=$(acpi -t | awk '{print $4}')
+	echo -e "|Thermals: $CPU °C"
+}
+
+#This while loop updates the statusbar in dwm
+while true; do
+	xsetroot -name "$(thermal) | $(power) | Date: $(date '+%Y-%m-%d') | Time: $(date +%H:%M) |"
+	sleep 1s		#The bar updates every second (without this it would constantly update, taking up resources)
+done &
