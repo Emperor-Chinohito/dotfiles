@@ -2,6 +2,7 @@
 # This is my dwm statusbar script.
 # It gives the CPU Temperature, Battery Percentage, Date, and Time (in that order)
 # By default dwm doesn't give any information, it only shows the version number
+# I haven't tried this script with any wm other than dwm, but it could possibly work with it if your statusbar uses xsetroot
 
 #The power() function determines the battery percentage
 power() 
