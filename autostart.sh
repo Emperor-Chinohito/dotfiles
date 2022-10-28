@@ -2,4 +2,4 @@
 
 xcompmgr &
 feh --bg-scale ~/dwm-orange/Wallpapers/Porco_Rosso.jpg
-dwmbar &
+./.dotfiles/dwmbar &
