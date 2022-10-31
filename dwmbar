@@ -7,8 +7,9 @@
 #The power() function determines the battery percentage
 power() 
 {
+	STAT=$(cat /sys/class/power_supply/BAT0/status)
 	PWR=$(cat /sys/class/power_supply/BAT0/capacity)
-	echo -e "Battery: $PWR%"
+	echo -e "Battery: $PWR% ($STAT)"
 }
 
 #This while loop updates the statusbar in dwm
