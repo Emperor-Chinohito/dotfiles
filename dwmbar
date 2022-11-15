@@ -21,7 +21,6 @@ RAM()
 #This while loop updates the statusbar in dwm
 while true; do
         xsetroot -name "| $(RAM) | $(power) | Date: $(date '+%Y-%m-%d') | Time: $(date +%H:%M) |"
-        sleep 1s                #The bar updates every second (without this it would constantly update,
-taking up resources)
+        sleep 1s                #The bar updates every second (without this it would constantly update, taking up resources)
 done &
 
