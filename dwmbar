@@ -7,12 +7,12 @@
 #The power() function determines the battery percentage
 power()
 {
-        if [ -f "$FILE" ]; then
-		STAT=$(cat /sys/class/power_supply/BAT0/status)
-        	PWR=$(cat /sys/class/power_supply/BAT0/capacity)
-        	echo -e "Battery: $PWR% ($STAT)"
+	if [ -d /sys/class/power_supply/BAT0/status ]; then
+        	echo -e "Battery Status Unavailable"
 	else
-		echo -e "Battery Status Unavailable"
+		STAT=$(cat /sys/class/power_supply/BAT0/status)
+		PWR=$(cat /sys/class/power_supply/BAT0/capacity)
+		echo -e "Battery: $PWR% ($STAT)"
 	fi
 }
 
